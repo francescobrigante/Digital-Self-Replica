@@ -1,0 +1,12 @@
+
+.env
+*.json
+
+/datasets/*
+!/datasets/.gitkeep
+/francesco_lora/*
+!/francesco_lora/.gitkeep
+/chat/*
+!/chat/.gitkeep
+/data/*
+!/data/.gitkeep
