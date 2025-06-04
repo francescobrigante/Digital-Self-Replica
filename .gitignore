@@ -10,3 +10,4 @@
 !/chat/.gitkeep
 /data/*
 !/data/.gitkeep
+/wandb/*
