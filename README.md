@@ -8,14 +8,14 @@ The system uses QLoRA (Quantized Low-Rank Adaptation) to efficiently fine-tune a
 
 ## Repository Structure
 ```
-├── chat/ # Raw WhatsApp chats (empty - private data)
-├── data/ # Pre-processed CSV files (empty - private data)
-├── datasets/ # Final datasets (empty - private data)
-├── francesco_lora/ # Checkpoint directory (empty - private data)
-├── data.ipynb # Data preprocessing and dataset creation logic
-├── evaluation.ipynb # Model evaluation and metrics computation
-├── lora_train.ipynb # QLoRA fine-tuning implementation
-├── prompt_testing.ipynb # Interactive evaluation and response testing
+├── chat/                       # Raw WhatsApp chats (empty - private data)
+├── data/                       # Pre-processed CSV files (empty - private data)
+├── datasets/                   # Final datasets (empty - private data)
+├── francesco_lora/             # Checkpoint directory (empty - private data)
+├── data.ipynb                  # Data preprocessing and dataset creation logic
+├── evaluation.ipynb            # Model evaluation and metrics computation
+├── lora_train.ipynb            # QLoRA fine-tuning implementation
+├── prompt_testing.ipynb        # Interactive evaluation and response testing
 ├── .DS_Store
 ├── .gitignore
 └── LICENSE
