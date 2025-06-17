@@ -7,6 +7,7 @@ This project implements a Personal Style Cloning system that adapts a Large Lang
 The system uses QLoRA (Quantized Low-Rank Adaptation) to efficiently fine-tune a 7B parameter model (DeepSeek-R1-Distill-Qwen-7B) on personal messaging data. By combining 4-bit quantization with Low-Rank Adaptation, the approach enables training large language models on consumer-grade hardware while maintaining good performances.
 
 ## Repository Structure
+```
 ├── chat/ # Raw WhatsApp chats (empty - private data)
 ├── data/ # Pre-processed CSV files (empty - private data)
 ├── datasets/ # Final datasets (empty - private data)
@@ -18,6 +19,7 @@ The system uses QLoRA (Quantized Low-Rank Adaptation) to efficiently fine-tune a
 ├── .DS_Store
 ├── .gitignore
 └── LICENSE
+```
 
 
 ## File Descriptions
