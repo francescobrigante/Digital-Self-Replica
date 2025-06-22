@@ -2,6 +2,8 @@
 
 This project implements a Personal Style Cloning system that adapts a Large Language Model to mimic an individual's communication patterns using Quantized Low-Rank Adaptation (QLoRA). The idea is to fine-tune a baseline LLM on personal WhatsApp conversation data to create a Digital Replica capable of generating responses in the target individual's characteristic writing style.
 
+For further details, read the full paper [NLP HWp Francesco Brigante.pdf](/NLP%20HWp%20Francesco%20Brigante.pdf)
+
 ## Project Overview
 
 The system uses QLoRA (Quantized Low-Rank Adaptation) to efficiently fine-tune a 7B parameter model (DeepSeek-R1-Distill-Qwen-7B) on personal messaging data. By combining 4-bit quantization with Low-Rank Adaptation, the approach enables training large language models on consumer-grade hardware while maintaining good performances.
