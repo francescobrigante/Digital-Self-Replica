@@ -35,7 +35,8 @@ The pipeline logic lives in the `src/` package; the notebooks are thin showcases
 │       └── chat_eval.py           # METEOR, BERTScore, semantic similarity, prompt alignment
 ├── scripts/
 │   ├── build_dataset.py           # CLI: chats → tokenized train/val/test datasets
-│   └── train.py                   # CLI: QLoRA fine-tuning
+│   ├── train.py                   # CLI: QLoRA fine-tuning
+│   └── chat.py                    # CLI: interactive chat with the trained replica
 ├── notebooks/
 │   ├── 01_data_pipeline.ipynb     # Dataset construction walkthrough with real examples
 │   ├── 02_lora_training.ipynb     # Training run record (Kaggle) with loss curves
@@ -55,6 +56,9 @@ pip install -r requirements.txt
 # put your HF token in .env (HF_TOKEN=...), export WhatsApp chats as .txt into chat/
 python scripts/build_dataset.py            # chats → tokenized datasets in datasets/
 python scripts/train.py --wandb            # QLoRA fine-tuning (needs a GPU)
+
+# chat with the trained replica (add --gpu-mem/--cpu-mem/--offload-dir on small GPUs)
+python scripts/chat.py --adapter-path francesco_lora/checkpoint-600
 ```
 
 Every hyperparameter (context window, time gap, LoRA rank/alpha, training arguments, decoding settings) is in [config.yaml](config.yaml) — nothing is hardcoded in the source.
