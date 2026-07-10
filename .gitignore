@@ -12,3 +12,7 @@
 !/data/.gitkeep
 /wandb/*
 .DS_Store
+
+# python
+__pycache__/
+*.pyc
