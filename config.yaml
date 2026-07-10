@@ -1,0 +1,57 @@
+# ==============================================================================
+# Central configuration for the Digital Self-Replica pipeline.
+# Loaded by src/config.py — no hyperparameter should live in source code.
+# ==============================================================================
+
+model:
+  base_model_id: deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
+
+data:
+  chat_dir: chat                    # raw WhatsApp .txt exports
+  csv_dir: data                     # cleaned per-chat CSVs
+  dataset_json: dataset.json        # merged conversations
+  datasets_dir: datasets            # tokenized HF datasets (train/val/test)
+  assistant_name: Francesco Brigante  # sender treated as the "assistant" role
+  max_context_messages: 5           # max previous messages included as context
+  time_gap_minutes: 30              # messages older than this are not context
+  max_length: 256                   # tokenizer max length
+  test_size: 0.2                    # 80% train, then test split in half (10% val, 10% test)
+  seed: 42
+
+lora:
+  r: 64
+  alpha: 32
+  dropout: 0.05
+  target_modules:                   # attention + FFN projections of the Qwen architecture
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  output_dir: ./francesco_lora
+  num_train_epochs: 3
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 4    # effective batch = train_batch_size * grad_accumulation
+  per_device_eval_batch_size: 6
+  eval_accumulation_steps: 4
+  warmup_steps: 50
+  learning_rate: 3.0e-4
+  lr_scheduler_type: cosine
+  weight_decay: 0.01
+  logging_steps: 25
+  eval_steps: 100
+  save_steps: 100
+  max_grad_norm: 1.0
+  early_stopping_patience: 3
+  early_stopping_threshold: 0.01
+  wandb_project: Digital Self-Replica
+
+generation:
+  max_new_tokens: 90
+  temperature: 0.4
+  top_p: 0.95
+  repetition_penalty: 1.2

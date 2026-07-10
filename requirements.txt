@@ -1,0 +1,21 @@
+# Core
+torch
+transformers
+datasets
+peft
+bitsandbytes
+accelerate
+huggingface_hub
+pandas
+numpy
+pyyaml
+python-dotenv
+tqdm
+
+# Evaluation
+evaluate
+sentence-transformers
+bert_score
+
+# Optional: training logging
+wandb
